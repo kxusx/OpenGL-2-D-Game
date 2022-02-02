@@ -34,6 +34,18 @@ glm/glm.hpp
 glm/gtc/type_ptr.hpp
 -
 
+../include/sprite_renderer.h
+glad/glad.h
+-
+glm/glm.hpp
+-
+glm/gtc/matrix_transform.hpp
+-
+texture.h
+../include/texture.h
+shader.h
+../include/shader.h
+
 ../include/texture.h
 glad/glad.h
 -
@@ -716,6 +728,28 @@ constants.inl
 limits
 -
 
+../libraries/glm/glm/gtc/matrix_transform.hpp
+../mat4x4.hpp
+../libraries/glm/glm/mat4x4.hpp
+../vec2.hpp
+../libraries/glm/glm/vec2.hpp
+../vec3.hpp
+../libraries/glm/glm/vec3.hpp
+../vec4.hpp
+../libraries/glm/glm/vec4.hpp
+../gtc/constants.hpp
+../libraries/glm/glm/gtc/constants.hpp
+matrix_transform.inl
+../libraries/glm/glm/gtc/matrix_transform.inl
+
+../libraries/glm/glm/gtc/matrix_transform.inl
+../geometric.hpp
+../libraries/glm/glm/geometric.hpp
+../trigonometric.hpp
+../libraries/glm/glm/trigonometric.hpp
+../matrix.hpp
+../libraries/glm/glm/matrix.hpp
+
 ../libraries/glm/glm/gtc/quaternion.hpp
 ../mat3x3.hpp
 ../libraries/glm/glm/mat3x3.hpp
@@ -888,15 +922,11 @@ detail/type_vec4.hpp
 detail/func_vector_relational.hpp
 ../libraries/glm/glm/detail/func_vector_relational.hpp
 
-/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/main.cpp
-glad/glad.h
--
-GLFW/glfw3.h
--
+/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/game.cpp
 game.h
 /Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/game.h
 resource_manager.h
 /Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/resource_manager.h
-iostream
--
+sprite_renderer.h
+/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/sprite_renderer.h
 

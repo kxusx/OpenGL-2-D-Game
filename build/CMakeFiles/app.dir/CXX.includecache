@@ -11,6 +11,32 @@ glad/glad.h
 -
 GLFW/glfw3.h
 -
+game_level.h
+../include/game_level.h
+
+../include/game_level.h
+vector
+-
+glad/glad.h
+-
+glm/glm.hpp
+-
+game_object.h
+../include/game_object.h
+sprite_renderer.h
+../include/sprite_renderer.h
+resource_manager.h
+../include/resource_manager.h
+
+../include/game_object.h
+glad/glad.h
+-
+glm/glm.hpp
+-
+texture.h
+../include/texture.h
+sprite_renderer.h
+../include/sprite_renderer.h
 
 ../include/resource_manager.h
 map
@@ -45,36 +71,6 @@ texture.h
 ../include/texture.h
 shader.h
 ../include/shader.h
-
-../include/stb_image.h
-stb_image.h
-../include/stb_image.h
-stdio.h
--
-stdarg.h
--
-stddef.h
--
-stdlib.h
--
-string.h
--
-limits.h
--
-math.h
--
-stdio.h
--
-assert.h
--
-stdint.h
--
-emmintrin.h
--
-intrin.h
--
-arm_neon.h
--
 
 ../include/texture.h
 glad/glad.h
@@ -959,16 +955,4 @@ resource_manager.h
 /Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/resource_manager.h
 sprite_renderer.h
 /Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/sprite_renderer.h
-
-/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/resource_manager.cpp
-resource_manager.h
-/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/resource_manager.h
-iostream
--
-sstream
--
-fstream
--
-stb_image.h
-/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/stb_image.h
 

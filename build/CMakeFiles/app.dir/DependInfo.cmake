@@ -5,6 +5,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/game.cpp" "/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/build/CMakeFiles/app.dir/src/game.cpp.o"
+  "/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/game_level.cpp" "/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/build/CMakeFiles/app.dir/src/game_level.cpp.o"
+  "/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/game_object.cpp" "/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/build/CMakeFiles/app.dir/src/game_object.cpp.o"
   "/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/main.cpp" "/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/build/CMakeFiles/app.dir/src/main.cpp.o"
   "/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/resource_manager.cpp" "/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/build/CMakeFiles/app.dir/src/resource_manager.cpp.o"
   "/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/shader.cpp" "/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/build/CMakeFiles/app.dir/src/shader.cpp.o"

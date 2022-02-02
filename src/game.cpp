@@ -13,7 +13,7 @@
 
 // Game-related State data
 SpriteRenderer  *Renderer;
-
+GameObject      *Player;
 
 Game::Game(unsigned int width, unsigned int height) 
     : State(GAME_ACTIVE), Keys(), Width(width), Height(height)
@@ -24,8 +24,8 @@ Game::Game(unsigned int width, unsigned int height)
 Game::~Game()
 {
     delete Renderer;
+    delete Player;
 }
-
 void Game::Init()
 {
     // load shaders
@@ -41,6 +41,8 @@ void Game::Init()
     Renderer = new SpriteRenderer(myShader);
     // load textures
     ResourceManager::LoadTexture("/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/textures/awesomeface.png", true, "face");
+    
+    // ResourceManager::LoadTexture("/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/textures/white.png", true, "background");
 }
 
 void Game::Update(float dt)

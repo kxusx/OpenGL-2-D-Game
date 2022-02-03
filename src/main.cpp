@@ -5,12 +5,14 @@
 #include "resource_manager.h"
 #define GLFW_INCLUDE_GLCOREARB
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
 #include <fstream>
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
 // GLFW function declarations
@@ -27,50 +29,56 @@ Game Breakout(SCREEN_WIDTH, SCREEN_HEIGHT);
 
 void levelGenerator() {
 	srand(time(NULL));
-	FILE *fp;
-	int noOfEnemies = 4,totalCoins = 5;
-	int array[16][25] = {0};
+	ofstream myfile;
+	int noOfEnemies = 4, totalCoins = 5;
+    int row =5, col =5;
+	int array[row][col] ;
 
-	fp = fopen("/Users/khushpatel/Documents/ComputerGraphics/CG-Assignment1/levels/one.lvl","w");
+	myfile.open("/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/levels/one.lvl",ios::out);
+    
 
-	for (int i = 0; i < 16; i++) {
-		int r1 = rand() % 25;
-		int r2 = rand() % 25;
+	for (int i = 0; i < row; i++) {
+		int r1 = rand() % col;
+		int r2 = rand() % col;
 		array[i][r1] = 1;
 		array[i][r2] = 1;
 	}
 	for (int i = 0; i < totalCoins; i++) {
-		int x = rand() % 16;
-		int y = rand() % 25;
+		int x = rand() % row;
+		int y = rand() % col;
 		array[x][y] = 2;
 	}
 	for (int i = 0; i < noOfEnemies; i++) {
-		int x = rand() % 16;
-		int y = rand() % 25;
+		int x = rand() % row;
+		int y = rand() % col;
 		array[x][y] = 3;
 	}
 	// Put 1 at all the walls of the matrix
-	for (int i = 0; i < 16; i++) {
-		array[i][0] = 1;
-		array[i][24] = 1;
+	// for (int i = 0; i < row; i++) {
+	// 	array[i][0] = 1;
+	// 	array[i][col-1] = 1;
+	// }
+	// for (int i = 0; i < col; i++) {
+	// 	array[0][i] = 1;
+	// 	array[row-1][i] = 1;
+	// }
+
+	// std::fprintf(fp,"%d\n",totalCoins);
+	if (myfile.is_open()) {
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < col; j++) {
+				myfile << array[i][j] << " ";
+			}
+			myfile << "\n";
+		}
+	} else {
+		cout << "NOT OPEN";
 	}
-	for (int i = 0; i < 25; i++) {
-		array[0][i] = 1;
-		array[15][i] = 1;
-	}
-
-//    for(int i = 0; i < 16; i++) {
-//       for(int j = 0; j < 25; j++) {
-//          fprintf(fp, "%d ", array[i][j]);
-//       }
-//       fprintf(fp, "\n");
-//    }
-
-
+     myfile.close();
 }
 
 int main(int argc, char* argv[]) {
-    levelGenerator();
+	levelGenerator();
 	glfwInit();
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);

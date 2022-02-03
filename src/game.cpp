@@ -108,6 +108,7 @@ void Game::Init() {
 	this->Levels.push_back(four);
 	this->Level = 0;
 	// configure game objects
+
 	glm::vec2 playerPos = glm::vec2(this->Width / 2.0f - PLAYER_SIZE.x / 2.0f,
 									this->Height - PLAYER_SIZE.y);
 	Player = new GameObject(0,1, playerPos, PLAYER_SIZE,
@@ -187,10 +188,9 @@ bool Game::DoCollisions() {
 
 bool Game::enemyCollision(GameObject &enemy) {
 	for (GameObject &box : this->Levels[this->Level].Bricks) {
-		cout<<"ID"<<box.id<<" "<<enemy.id<<endl;
 		if (!box.Destroyed && box.id != enemy.id) {
 			if (CheckCollision(enemy, box)) {
-				cout<<"TRUE"<<"ID"<<box.id<<" "<<enemy.id<<endl;
+				//cout<<"TRUE"<<"ID"<<box.id<<" "<<enemy.id<<endl;
 				return true;
 			}
 		}
@@ -208,14 +208,14 @@ void Game::Update(float dt) {
 			int direction = rand() % 4;
 			// cout<<"Direction for " << box.Position.x << " " << box.Position.y
 			// << " " << direction << endl;
-			cout<<"Initial "<<box.Position.x<<" "<<box.Position.y<<" "<<box.Size.x<<endl;
+			//cout<<"Initial "<<box.Position.x<<" "<<box.Position.y<<" "<<box.Size.x<<endl;
 			if (!box.Destroyed) {
 				if (direction == 0) {
-					cout<<"x+\n";
+					//cout<<"x+\n";
 					if (box.Position.x >= 0.0f) {
 						box.Position.x -= velocity;
 						if (enemyCollision(box)) {
-							cout<<":x+\n";
+							//cout<<":x+\n";
 							box.Position.x += velocity;
 						}
 					}
@@ -223,24 +223,24 @@ void Game::Update(float dt) {
 				}
 				
 				if (direction == 1) {
-					cout<<"x-\n";
+					//cout<<"x-\n";
 					if (box.Position.x <= this->Width - box.Size.x) {
 						box.Position.x +=velocity;
 						if (enemyCollision(box)) {
 							box.Position.x -= velocity;
-							cout<<":x-\n";
+							//cout<<":x-\n";
 						}
 					}
 					//cout<<box.Position.x<<" "<<box.Position.y<<endl;
 				}
 				
 				if (direction == 2) {
-					cout<<"y+\n";
+					//cout<<"y+\n";
 					if (box.Position.y >= 0.0f) {
 						box.Position.y -= velocity;
 						if (enemyCollision(box)) {
 							box.Position.y += velocity;
-							cout<<":y+\n";
+							//cout<<":y+\n";
 						}
 					}
 					//cout<<box.Position.x<<" "<<box.Position.y<<endl;
@@ -248,11 +248,11 @@ void Game::Update(float dt) {
 				
 				if (direction == 3) {
 					if (box.Position.y <= this->Height - box.Size.y) {
-						cout<<"y-\n";
+						//cout<<"y-\n";
 						box.Position.y += velocity;
 						if (enemyCollision(box)) {
 							box.Position.y -= velocity;
-							cout<<":y-\n";
+							//cout<<":y-\n";
 						}
 					}
 					//cout<<box.Position.x<<" "<<box.Position.y<<endl;

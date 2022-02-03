@@ -15,7 +15,7 @@ enum GameState {
 };
 
 // Initial size of the player paddle
-const glm::vec2 PLAYER_SIZE(100.0f, 20.0f);
+const glm::vec2 PLAYER_SIZE(30.0f, 30.0f);
 // Initial velocity of the player paddle
 const float PLAYER_VELOCITY(500.0f);
 

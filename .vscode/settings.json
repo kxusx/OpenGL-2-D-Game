@@ -8,6 +8,14 @@
         "algorithm": "cpp",
         "*.tcc": "cpp",
         "iostream": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "ios": "cpp",
+        "istream": "cpp",
+        "locale": "cpp",
+        "numeric": "cpp",
+        "ostream": "cpp",
+        "random": "cpp",
+        "unordered_map": "cpp",
+        "sstream": "cpp"
     }
 }

@@ -4,6 +4,10 @@
         "deque": "cpp",
         "string": "cpp",
         "vector": "cpp",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "algorithm": "cpp",
+        "*.tcc": "cpp",
+        "iostream": "cpp",
+        "iosfwd": "cpp"
     }
 }

@@ -10,7 +10,8 @@
 enum GameState {
     GAME_ACTIVE,
     GAME_MENU,
-    GAME_WIN
+    GAME_WIN,
+    GAME_OVER
 };
 
 // Initial size of the player paddle
@@ -30,6 +31,7 @@ public:
     unsigned int            Width, Height;
     std::vector<GameLevel>  Levels;
     unsigned int            Level;
+    long long int           points;
     // constructor/destructor
     Game(unsigned int width, unsigned int height);
     ~Game();
@@ -40,6 +42,7 @@ public:
     void Update(float dt);
     void Render();
     bool DoCollisions();
+    bool enemyCollision(GameObject& enemy);
 
 };
 

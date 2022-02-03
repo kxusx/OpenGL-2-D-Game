@@ -948,23 +948,23 @@ detail/type_vec4.hpp
 detail/func_vector_relational.hpp
 ../libraries/glm/glm/detail/func_vector_relational.hpp
 
-/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/game.cpp
-game.h
-/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/game.h
-resource_manager.h
-/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/resource_manager.h
-sprite_renderer.h
-/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/sprite_renderer.h
-
 /Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/main.cpp
-glad/glad.h
--
 GLFW/glfw3.h
 -
+glad/glad.h
+-
 game.h
 /Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/game.h
 resource_manager.h
 /Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/resource_manager.h
+stdlib.h
+-
+time.h
+-
+fstream
+-
 iostream
+-
+vector
 -
 

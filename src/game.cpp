@@ -11,6 +11,7 @@
 #include "sprite_renderer.h"
 
 
+
 // Game-related State data
 SpriteRenderer  *Renderer;
 GameObject      *Player;
@@ -47,7 +48,7 @@ void Game::Init()
     ResourceManager::LoadTexture("/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/textures/icyterrain.jpeg", false, "block_solid");
     ResourceManager::LoadTexture("/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/textures/icyterrain.jpeg", false, "block");
 
-    ResourceManager::LoadTexture("/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/textures/pika2.png", true, "paddle");
+    ResourceManager::LoadTexture("/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/textures/grassterrain.png", true, "paddle");
 
     GameLevel one; one.Load("/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/levels/one.lvl", this->Width, this->Height / 2);
     GameLevel two; two.Load("/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/levels/two.lvl", this->Width, this->Height / 2);
@@ -67,8 +68,9 @@ void Game::Init()
 
 void Game::Update(float dt)
 {
-    
-}
+    // check for collisions
+    this->DoCollisions();
+}  
 
 void Game::ProcessInput(float dt)
 {
@@ -78,16 +80,71 @@ void Game::ProcessInput(float dt)
         // move playerboard
         if (this->Keys[GLFW_KEY_A])
         {
-            if (Player->Position.x >= 0.0f)
+            if (Player->Position.x >= 0.0f){
                 Player->Position.x -= velocity;
+                if (DoCollisions())
+					Player->Position.x += velocity;
+            }
+                
+            
         }
         if (this->Keys[GLFW_KEY_D])
         {
-            if (Player->Position.x <= this->Width - Player->Size.x)
+            if (Player->Position.x <= this->Width - Player->Size.x){
                 Player->Position.x += velocity;
+                if (DoCollisions())
+					Player->Position.x -= velocity;
+            }
+                
+        }
+         if (this->Keys[GLFW_KEY_W])
+        {
+            if (Player->Position.y >= 0.0f){
+                Player->Position.y -= velocity;
+                if (DoCollisions())
+                    Player->Position.y += velocity;
+            }
+                
+        }
+        if (this->Keys[GLFW_KEY_S])
+        {
+            if (Player->Position.y <= this->Height - Player->Size.y)
+                {Player->Position.y += velocity;
+                if (DoCollisions())
+                    Player->Position.y -= velocity;
+                }
         }
     }
 } 
+
+bool CheckCollision(GameObject &one, GameObject &two) // AABB - AABB collision
+{
+    // collision x-axis?
+    bool collisionX = one.Position.x + one.Size.x >= two.Position.x &&
+        two.Position.x + two.Size.x >= one.Position.x;
+    // collision y-axis?
+    bool collisionY = one.Position.y + one.Size.y >= two.Position.y &&
+        two.Position.y + two.Size.y >= one.Position.y;
+    // collision only if on both axes
+    return collisionX && collisionY;
+}  
+
+bool Game::DoCollisions()
+{
+    for (GameObject &box : this->Levels[this->Level].Bricks)
+    {
+        if (!box.Destroyed)
+        {
+            if (CheckCollision(*Player, box))
+            {
+                if (!box.IsSolid)
+                    box.Destroyed = true; 
+                return true;
+            }
+        }
+    }
+    return false;
+}
 
 void Game::Render()
 {

@@ -956,3 +956,15 @@ resource_manager.h
 sprite_renderer.h
 /Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/sprite_renderer.h
 
+/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/main.cpp
+glad/glad.h
+-
+GLFW/glfw3.h
+-
+game.h
+/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/game.h
+resource_manager.h
+/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/resource_manager.h
+iostream
+-
+

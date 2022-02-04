@@ -766,6 +766,8 @@ CMakeFiles/app.dir/src/sprite_renderer.cpp.o: ../libraries/glm/glm/vec4.hpp
 CMakeFiles/app.dir/src/sprite_renderer.cpp.o: ../libraries/glm/glm/vector_relational.hpp
 CMakeFiles/app.dir/src/sprite_renderer.cpp.o: ../src/sprite_renderer.cpp
 
+CMakeFiles/app.dir/src/text_renderer.cpp.o: ../src/text_renderer.cpp
+
 CMakeFiles/app.dir/src/texture.cpp.o: ../include/texture.h
 CMakeFiles/app.dir/src/texture.cpp.o: ../libraries/glad/include/KHR/khrplatform.h
 CMakeFiles/app.dir/src/texture.cpp.o: ../libraries/glad/include/glad/glad.h

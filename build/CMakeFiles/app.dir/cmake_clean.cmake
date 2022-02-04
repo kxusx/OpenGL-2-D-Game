@@ -6,6 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/app.dir/src/resource_manager.cpp.o"
   "CMakeFiles/app.dir/src/shader.cpp.o"
   "CMakeFiles/app.dir/src/sprite_renderer.cpp.o"
+  "CMakeFiles/app.dir/src/text_renderer.cpp.o"
   "CMakeFiles/app.dir/src/texture.cpp.o"
   "app"
   "app.pdb"

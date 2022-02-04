@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/resource_manager.cpp" "/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/build/CMakeFiles/app.dir/src/resource_manager.cpp.o"
   "/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/shader.cpp" "/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/build/CMakeFiles/app.dir/src/shader.cpp.o"
   "/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/sprite_renderer.cpp" "/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/build/CMakeFiles/app.dir/src/sprite_renderer.cpp.o"
+  "/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/text_renderer.cpp" "/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/build/CMakeFiles/app.dir/src/text_renderer.cpp.o"
   "/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/texture.cpp" "/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/build/CMakeFiles/app.dir/src/texture.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")

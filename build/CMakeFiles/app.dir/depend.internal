@@ -766,6 +766,8 @@ CMakeFiles/app.dir/src/sprite_renderer.cpp.o
  ../libraries/glm/glm/vec4.hpp
  ../libraries/glm/glm/vector_relational.hpp
  /Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/sprite_renderer.cpp
+CMakeFiles/app.dir/src/text_renderer.cpp.o
+ /Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/src/text_renderer.cpp
 CMakeFiles/app.dir/src/texture.cpp.o
  ../include/texture.h
  ../libraries/glad/include/KHR/khrplatform.h

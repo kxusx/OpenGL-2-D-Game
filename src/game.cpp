@@ -137,8 +137,9 @@ void Game::Init() {
 
 void Game::ProcessInput(float dt) {
 	if(this->Keys[GLFW_KEY_ENTER]) {
-		this->State = GAME_ACTIVE;
-		this->Keys[GLFW_KEY_ENTER] = false;
+		if(this->State == GAME_MENU){
+			this->State = GAME_ACTIVE;
+		}
 	}
 	if (this->State == GAME_ACTIVE) {
 		float velocity = PLAYER_VELOCITY * dt;
@@ -153,13 +154,13 @@ void Game::ProcessInput(float dt) {
 						this->Width / 2.0f - PLAYER_SIZE.x / 2.0f;
 					Player->Position.y = this->Height - PLAYER_SIZE.y;
 					this->Level++;
-					if (this->Level == 4) {
+					if (this->Level == 3) {
 						this->Level = 0;
 					}
 				}
 				if (winCollision()) {
 					this->State = GAME_WIN;
-					cout << "WIN";
+					//cout << "WIN";
 				}
 			}
 		}
@@ -173,13 +174,13 @@ void Game::ProcessInput(float dt) {
 						this->Width / 2.0f - PLAYER_SIZE.x / 2.0f;
 					Player->Position.y = this->Height - PLAYER_SIZE.y;
 					this->Level++;
-					if (this->Level == 4) {
+					if (this->Level == 3) {
 						this->Level = 0;
 					}
 				}
 				if (winCollision()) {
 					this->State = GAME_WIN;
-					cout << "WIN";
+					//cout << "WIN";
 				}
 			}
 		}
@@ -189,17 +190,16 @@ void Game::ProcessInput(float dt) {
 				if (DoCollisions())
 					Player->Position.y += velocity;
 				if (doorCollision()) {
-					Player->Position.x =
-						this->Width / 2.0f - PLAYER_SIZE.x / 2.0f;
+					Player->Position.x = this->Width / 2.0f - PLAYER_SIZE.x / 2.0f;
 					Player->Position.y = this->Height - PLAYER_SIZE.y;
 					this->Level++;
-					if (this->Level == 4) {
+					if (this->Level == 3) {
 						this->Level = 0;
 					}
 				}
 				if (winCollision()) {
 					this->State = GAME_WIN;
-					cout << "WIN";
+					//cout << "WIN";
 				}
 			}
 		}
@@ -209,17 +209,16 @@ void Game::ProcessInput(float dt) {
 				if (DoCollisions())
 					Player->Position.y -= velocity;
 				if (doorCollision()) {
-					Player->Position.x =
-						this->Width / 2.0f - PLAYER_SIZE.x / 2.0f;
+					Player->Position.x = this->Width / 2.0f - PLAYER_SIZE.x / 2.0f;
 					Player->Position.y = this->Height - PLAYER_SIZE.y;
 					this->Level++;
-					if (this->Level == 4) {
+					if (this->Level == 3) {
 						this->Level = 0;
 					}
 				}
 				if (winCollision()) {
 					this->State = GAME_WIN;
-					cout << "WIN";
+					//cout << "WIN";
 				}
 			}
 		}
@@ -253,11 +252,12 @@ bool Game::DoCollisions() {
 					if(this->light==0){
 						this->points+=5;
 					}
-					cout << this->points;
+					//cout << this->points;
 				}
 				if (box.type == 3) {  // hit enemy
 					this->State = GAME_OVER;
-					cout << "Game Over";
+
+					//cout << "Game Over";
 				}
 			}
 		}
@@ -362,6 +362,8 @@ void Game::Update(float dt) {
 		ResourceManager::GetShader("sprite").Use().SetInteger("light",
 															  this->light);
 	}
+
+	
 }
 
 void Game::Render() {
@@ -390,16 +392,17 @@ void Game::Render() {
 		std::stringstream ss_time;
 		ss_time << done;
 		std::stringstream ss_level;
-		ss_level << this->Level;
+		ss_level << this->Level+1;
 
 		Text->RenderText("Points:" + ss.str(), 5.0f, 5.0f, 1.0f);
 		Text->RenderText("Time Elapsed:" + ss_time.str(), 150.0f, 5.0f, 1.0f);
-		Text->RenderText("Level:" + ss_level.str(), 450.0f, 5.0f, 1.0f);
+		Text->RenderText("Room:" + ss_level.str(), 450.0f, 5.0f, 1.0f);
 	}
 	if (this->State == GAME_WIN) {
 		Text->RenderText("GAME WON", 300.0f, this->Height / 2, 1.0f);
 	}
 	if (this->State == GAME_OVER) {
 		Text->RenderText("GAME LOST", 300.0f, this->Height / 2, 1.0f);
+
 	}
 }

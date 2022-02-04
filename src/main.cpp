@@ -34,25 +34,34 @@ void levelGenerator() {
 	int noOfEnemies = 4, totalCoins = 5;
     int row = 20, col =10;
 	int array[row][col] ;
+	int r1 ,r2,x,y;
 	memset(array, 0, sizeof(array));
 
 	myfile.open("/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/levels/one.lvl",ios::out);
     
-	for (int i = 0; i < row-1; i++) {  
-		int r1 = rand() % col;
-		int r2 = rand() % col;
-		array[i][r1] = 1;
-		array[i][r2] = 1;
+	for (int i = 0; i < row-1; i++) {  // putting walls
+		x = rand() % col;
+		y = rand() % col;
+		array[i][x] = 1;
+		array[i][y] = 1;
 	}
-	for (int i = 0; i < totalCoins; i++) {
-		int x = rand() % row;
-		int y = rand() % col;
-		array[x][y] = 2;
+	for (int i = 0; i < totalCoins; i++) {	// putting coins
+		x = rand() % row;	
+		y = rand() % col;
+		if(x==row-1 || array[x][y]==1 ||y==col-1) {
+			i--;
+		}else{
+			array[x][y] = 2;
+		}
 	}
-	for (int i = 0; i < noOfEnemies; i++) {
-		int x = rand() % row;
-		int y = rand() % col;
-		array[x][y] = 3;
+	for (int i = 0; i < noOfEnemies; i++) { // putting enemies
+		x = rand() % row;
+		y = rand() % col;
+		if(x==row-1 ||y==col-1 || array[x][y]==1 || array[x][y]==2) {
+			i--;
+		}else{
+			array[x][y] = 3;
+		}
 	}
 	//Put 1 at all the walls of the matrix
 	for (int i = 0; i < row; i++) {
@@ -86,20 +95,28 @@ void levelGenerator() {
 	myfile.open("/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/levels/two.lvl",ios::out);
     
 	for (int i = 0; i < row-1; i++) { // putting walls
-		int r1 = rand() % col;
-		int r2 = rand() % col;
-		array2[i][r1] = 1;
-		array2[i][r2] = 1;
+		x = rand() % col;
+		y = rand() % col;
+		array2[i][x] = 1;
+		array2[i][y] = 1;
 	}
-	for (int i = 0; i < totalCoins; i++) { // putting coins
-		int x = rand() % row;
-		int y = rand() % col;
-		array2[x][y] = 2;
+	for (int i = 0; i < totalCoins; i++) {	// putting coins
+		x = rand() % row;	
+		y = rand() % col;
+		if(x==row-1 || array[x][y]==1 ||y==col-1) {
+			i--;
+		}else{
+			array2[x][y] = 2;
+		}
 	}
-	for (int i = 0; i < noOfEnemies; i++) {	// puttin enemies
-		int x = rand() % row;
-		int y = rand() % col;
-		array2[x][y] = 3;
+	for (int i = 0; i < noOfEnemies; i++) { // putting enemies
+		x = rand() % row;
+		y = rand() % col;
+		if(x==row-1 ||y==col-1 || array[x][y]==1 || array[x][y]==2) {
+			i--;
+		}else{
+			array2[x][y] = 3;
+		}
 	}
 	//Put 1 at all the walls of the matrix
 	for (int i = 0; i < row; i++) {
@@ -108,7 +125,6 @@ void levelGenerator() {
 	}
 	for (int i = 0; i < col; i++) {
 		array2[0][i] = 1;
-		//array[row-1][i] = 1;
 	}
 	array2[row-1][2] = 4;
 
@@ -125,7 +141,7 @@ void levelGenerator() {
 	}
      myfile.close();
 	//-------------------------------- LEVEL 3 --------------------------------
-	noOfEnemies = 7, totalCoins = 9;
+	noOfEnemies = 8, totalCoins = 10;
     row = 20, col =10;
 	int array3[row][col] ;
 	memset(array3, 0, sizeof(array3));
@@ -133,20 +149,28 @@ void levelGenerator() {
 	myfile.open("/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/levels/three.lvl",ios::out);
     
 	for (int i = 0; i < row-1; i++) {
-		int r1 = rand() % col;
-		int r2 = rand() % col;
-		array3[i][r1] = 1;
-		array3[i][r2] = 1;
+		x = rand() % col;
+		y = rand() % col;
+		array3[i][x] = 1;
+		array3[i][y] = 1;
 	}
-	for (int i = 0; i < totalCoins; i++) {
-		int x = rand() % row;
-		int y = rand() % col;
-		array3[x][y] = 2;
+	for (int i = 0; i < totalCoins; i++) {	// putting coins
+		x = rand() % row;	
+		y = rand() % col;
+		if(x==row-1 || array[x][y]==1 ||y==col-1) {
+			i--;
+		}else{
+			array3[x][y] = 2;
+		}
 	}
-	for (int i = 0; i < noOfEnemies; i++) {
-		int x = rand() % row;
-		int y = rand() % col;
-		array3[x][y] = 3;
+	for (int i = 0; i < noOfEnemies; i++) { // putting enemies
+		x = rand() % row;
+		y = rand() % col;
+		if(x==row-1 ||y==col-1 || array[x][y]==1 || array[x][y]==2) {
+			i--;
+		}else{
+			array3[x][y] = 3;
+		}
 	}
 	//Put 1 at all the walls of the matrix
 	for (int i = 0; i < row; i++) {
@@ -157,8 +181,8 @@ void levelGenerator() {
 		array3[0][i] = 1;
 		//array[row-1][i] = 1;
 	}
-array3[row-1][2] = 4;
-array3[row-1][col-2] = 5;
+	array3[row-1][2] = 4;
+	array3[row-1][col-2] = 5;
 	if (myfile.is_open()) {
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < col; j++) {

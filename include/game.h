@@ -43,6 +43,8 @@ public:
     void Render();
     bool DoCollisions();
     bool enemyCollision(GameObject& enemy);
+    bool doorCollision();
+    bool winCollision();
 
 };
 

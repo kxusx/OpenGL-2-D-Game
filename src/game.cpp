@@ -53,7 +53,7 @@ void Game::Init() {
 	ResourceManager::LoadTexture(
 		"/Users/khushpatel/Documents/Computer "
 		"Graphics/CG-Assignment1/textures/awesomeface.png",
-		true, "face");
+		true, "win");
 
 	ResourceManager::LoadTexture(
 		"/Users/khushpatel/Documents/Computer "
@@ -81,27 +81,31 @@ void Game::Init() {
 		"/Users/khushpatel/Documents/Computer "
 		"Graphics/CG-Assignment1/textures/onix.png",
 		true, "enemy");
+	ResourceManager::LoadTexture(
+		"/Users/khushpatel/Documents/Computer "
+		"Graphics/CG-Assignment1/textures/thunderbolt.png",
+		true, "door");
 
 	GameLevel one;
 	one.Load(
 		"/Users/khushpatel/Documents/Computer "
 		"Graphics/CG-Assignment1/levels/one.lvl",
-		this->Width, this->Height / 2);
+		this->Width, this->Height);
 	GameLevel two;
 	two.Load(
 		"/Users/khushpatel/Documents/Computer "
 		"Graphics/CG-Assignment1/levels/two.lvl",
-		this->Width, this->Height / 2);
+		this->Width, this->Height);
 	GameLevel three;
 	three.Load(
 		"/Users/khushpatel/Documents/Computer "
 		"Graphics/CG-Assignment1/levels/three.lvl",
-		this->Width, this->Height / 2);
+		this->Width, this->Height);
 	GameLevel four;
 	four.Load(
 		"/Users/khushpatel/Documents/Computer "
 		"Graphics/CG-Assignment1/levels/four.lvl",
-		this->Width, this->Height / 2);
+		this->Width, this->Height);
 	this->Levels.push_back(one);
 	this->Levels.push_back(two);
 	this->Levels.push_back(three);
@@ -111,8 +115,9 @@ void Game::Init() {
 
 	glm::vec2 playerPos = glm::vec2(this->Width / 2.0f - PLAYER_SIZE.x / 2.0f,
 									this->Height - PLAYER_SIZE.y);
-	Player = new GameObject(0,1, playerPos, PLAYER_SIZE,
+	Player = new GameObject(0, 1, playerPos, PLAYER_SIZE,
 							ResourceManager::GetTexture("paddle"));
+	Player->type = 0;
 }
 
 void Game::ProcessInput(float dt) {
@@ -124,6 +129,18 @@ void Game::ProcessInput(float dt) {
 				Player->Position.x -= velocity;
 				if (DoCollisions())
 					Player->Position.x += velocity;
+				if(doorCollision()){
+					Player->Position.x = this->Width / 2.0f - PLAYER_SIZE.x / 2.0f;
+					Player->Position.y = this->Height - PLAYER_SIZE.y;
+					this->Level++;
+					if(this->Level == 4){
+						this->Level = 0;
+					}
+				}
+				if(winCollision()){
+					this->State = GAME_WIN;
+					cout<<"WIN";
+				}
 			}
 		}
 		if (this->Keys[GLFW_KEY_D]) {
@@ -131,6 +148,18 @@ void Game::ProcessInput(float dt) {
 				Player->Position.x += velocity;
 				if (DoCollisions())
 					Player->Position.x -= velocity;
+				if(doorCollision()){
+					Player->Position.x = this->Width / 2.0f - PLAYER_SIZE.x / 2.0f;
+					Player->Position.y = this->Height - PLAYER_SIZE.y;
+					this->Level++;
+					if(this->Level == 4){
+						this->Level = 0;
+					}
+				}
+				if(winCollision()){
+					this->State = GAME_WIN;
+					cout<<"WIN";
+				}
 			}
 		}
 		if (this->Keys[GLFW_KEY_W]) {
@@ -138,6 +167,18 @@ void Game::ProcessInput(float dt) {
 				Player->Position.y -= velocity;
 				if (DoCollisions())
 					Player->Position.y += velocity;
+				if(doorCollision()){
+					Player->Position.x = this->Width / 2.0f - PLAYER_SIZE.x / 2.0f;
+					Player->Position.y = this->Height - PLAYER_SIZE.y;
+					this->Level++;
+					if(this->Level == 4){
+						this->Level = 0;
+					}
+				}
+				if(winCollision()){
+					this->State = GAME_WIN;
+					cout<<"WIN";
+				}
 			}
 		}
 		if (this->Keys[GLFW_KEY_S]) {
@@ -145,6 +186,18 @@ void Game::ProcessInput(float dt) {
 				Player->Position.y += velocity;
 				if (DoCollisions())
 					Player->Position.y -= velocity;
+				if(doorCollision()){
+					Player->Position.x = this->Width / 2.0f - PLAYER_SIZE.x / 2.0f;
+					Player->Position.y = this->Height - PLAYER_SIZE.y;
+					this->Level++;
+					if(this->Level == 4){
+						this->Level = 0;
+					}
+				}
+				if(winCollision()){
+					this->State = GAME_WIN;
+					cout<<"WIN";
+				}
 			}
 		}
 	}
@@ -190,7 +243,7 @@ bool Game::enemyCollision(GameObject &enemy) {
 	for (GameObject &box : this->Levels[this->Level].Bricks) {
 		if (!box.Destroyed && box.id != enemy.id) {
 			if (CheckCollision(enemy, box)) {
-				//cout<<"TRUE"<<"ID"<<box.id<<" "<<enemy.id<<endl;
+				// cout<<"TRUE"<<"ID"<<box.id<<" "<<enemy.id<<endl;
 				return true;
 			}
 		}
@@ -198,66 +251,84 @@ bool Game::enemyCollision(GameObject &enemy) {
 	return false;
 }
 
+bool Game::doorCollision() {
+	for (GameObject &box : this->Levels[this->Level].Bricks) {
+		if (box.type == 4) {
+			if (CheckCollision(*Player, box))
+				return true;
+		}
+	}
+	return false;
+}
+
+bool Game::winCollision(){
+	for (GameObject &box : this->Levels[this->Level].Bricks) {
+		if (box.type == 5) {
+			if (CheckCollision(*Player, box))
+				return true;
+		}
+	}
+	return false;
+}
+
 void Game::Update(float dt) {
-	
 	float velocity = PLAYER_VELOCITY * dt;
 	srand(time(0));
 	for (GameObject &box : this->Levels[this->Level].Bricks) {
 		if (box.type == 3) {
-			
 			int direction = rand() % 4;
 			// cout<<"Direction for " << box.Position.x << " " << box.Position.y
 			// << " " << direction << endl;
-			//cout<<"Initial "<<box.Position.x<<" "<<box.Position.y<<" "<<box.Size.x<<endl;
+			// cout<<"Initial "<<box.Position.x<<" "<<box.Position.y<<"
+			// "<<box.Size.x<<endl;
 			if (!box.Destroyed) {
 				if (direction == 0) {
-					//cout<<"x+\n";
+					// cout<<"x+\n";
 					if (box.Position.x >= 0.0f) {
 						box.Position.x -= velocity;
 						if (enemyCollision(box)) {
-							//cout<<":x+\n";
+							// cout<<":x+\n";
 							box.Position.x += velocity;
 						}
 					}
-					//cout<<box.Position.x<<" "<<box.Position.y<<endl;
+					// cout<<box.Position.x<<" "<<box.Position.y<<endl;
 				}
-				
+
 				if (direction == 1) {
-					//cout<<"x-\n";
+					// cout<<"x-\n";
 					if (box.Position.x <= this->Width - box.Size.x) {
-						box.Position.x +=velocity;
+						box.Position.x += velocity;
 						if (enemyCollision(box)) {
 							box.Position.x -= velocity;
-							//cout<<":x-\n";
+							// cout<<":x-\n";
 						}
 					}
-					//cout<<box.Position.x<<" "<<box.Position.y<<endl;
+					// cout<<box.Position.x<<" "<<box.Position.y<<endl;
 				}
-				
+
 				if (direction == 2) {
-					//cout<<"y+\n";
+					// cout<<"y+\n";
 					if (box.Position.y >= 0.0f) {
 						box.Position.y -= velocity;
 						if (enemyCollision(box)) {
 							box.Position.y += velocity;
-							//cout<<":y+\n";
+							// cout<<":y+\n";
 						}
 					}
-					//cout<<box.Position.x<<" "<<box.Position.y<<endl;
+					// cout<<box.Position.x<<" "<<box.Position.y<<endl;
 				}
-				
+
 				if (direction == 3) {
 					if (box.Position.y <= this->Height - box.Size.y) {
-						//cout<<"y-\n";
+						// cout<<"y-\n";
 						box.Position.y += velocity;
 						if (enemyCollision(box)) {
 							box.Position.y -= velocity;
-							//cout<<":y-\n";
+							// cout<<":y-\n";
 						}
 					}
-					//cout<<box.Position.x<<" "<<box.Position.y<<endl;
+					// cout<<box.Position.x<<" "<<box.Position.y<<endl;
 				}
-				
 			}
 		}
 	}

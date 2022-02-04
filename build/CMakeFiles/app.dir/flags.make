@@ -4,7 +4,7 @@
 # compile CXX with /Library/Developer/CommandLineTools/usr/bin/c++
 CXX_DEFINES = -DGLFW_INCLUDE_NONE
 
-CXX_INCLUDES = -I"/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/include" -I"/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/libraries/glfw/include" -I"/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/libraries/glad/include" -I"/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/libraries/glm"
+CXX_INCLUDES = -I"/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/include" -I"/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/libraries/glfw/include" -I"/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/libraries/glad/include" -I"/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/libraries/glm" -I/usr/local/include/freetype2
 
 CXX_FLAGS =  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++11
 

@@ -32,6 +32,8 @@ public:
     std::vector<GameLevel>  Levels;
     unsigned int            Level;
     long long int           points;
+    int                     light;
+    time_t     start_time;
     // constructor/destructor
     Game(unsigned int width, unsigned int height);
     ~Game();

@@ -220,6 +220,7 @@ app: CMakeFiles/app.dir/src/texture.cpp.o
 app: CMakeFiles/app.dir/build.make
 app: libraries/glfw/src/libglfw3.a
 app: libglad.a
+app: /usr/local/lib/libfreetype.dylib
 app: CMakeFiles/app.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/khushpatel/Documents/Computer Graphics/CG-Assignment1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable app"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/app.dir/link.txt --verbose=$(VERBOSE)

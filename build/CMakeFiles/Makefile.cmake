@@ -36,6 +36,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/local/Cellar/cmake/3.19.1/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
   "/usr/local/Cellar/cmake/3.19.1/share/cmake/Modules/Compiler/Clang.cmake"
   "/usr/local/Cellar/cmake/3.19.1/share/cmake/Modules/Compiler/GNU.cmake"
+  "/usr/local/Cellar/cmake/3.19.1/share/cmake/Modules/FindFreetype.cmake"
   "/usr/local/Cellar/cmake/3.19.1/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
   "/usr/local/Cellar/cmake/3.19.1/share/cmake/Modules/FindPackageMessage.cmake"
   "/usr/local/Cellar/cmake/3.19.1/share/cmake/Modules/FindPkgConfig.cmake"
@@ -51,6 +52,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/local/Cellar/cmake/3.19.1/share/cmake/Modules/Platform/Darwin-Initialize.cmake"
   "/usr/local/Cellar/cmake/3.19.1/share/cmake/Modules/Platform/Darwin.cmake"
   "/usr/local/Cellar/cmake/3.19.1/share/cmake/Modules/Platform/UnixPaths.cmake"
+  "/usr/local/Cellar/cmake/3.19.1/share/cmake/Modules/SelectLibraryConfigurations.cmake"
   "/usr/local/Cellar/cmake/3.19.1/share/cmake/Modules/WriteBasicConfigVersionFile.cmake"
   )
 

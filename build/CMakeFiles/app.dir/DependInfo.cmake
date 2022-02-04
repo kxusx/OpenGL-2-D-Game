@@ -27,6 +27,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../libraries/glfw/include"
   "../libraries/glad/include"
   "../libraries/glm"
+  "/usr/local/include/freetype2"
   )
 
 # Targets to which this target links.

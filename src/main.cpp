@@ -258,6 +258,12 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action,
 		else if (action == GLFW_RELEASE)
 			Breakout.Keys[key] = false;
 	}
+	if(key == GLFW_KEY_SPACE && action == GLFW_PRESS){
+		if(Breakout.light==0)
+			Breakout.light = 1;
+		else
+			Breakout.light = 0;
+	}
 }
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
